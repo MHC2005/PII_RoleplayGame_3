@@ -7,7 +7,7 @@ namespace RoleplayGame
 
         private List<IItem> items = new List<IItem>();
 
-        public Enemies(string name, int vp)
+        public Enemie(string name, int vp)
         {
             this.Name = name;
             this.VP = vp;
