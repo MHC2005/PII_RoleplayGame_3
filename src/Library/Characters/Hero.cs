@@ -1,23 +1,26 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Archer: Hero
+    public class Hero : ICharacter
     {
         private int health = 100;
 
         private List<IItem> items = new List<IItem>();
 
-        public Archer(string name)
+        public Hero(string name, int vp)
         {
-            //aca
-            this.AddItem(new Bow());
-            this.AddItem(new Helmet());
+            this.Name = name;
+            this.VP = vp;
+
+            
+            this.AddItem(new Sword());
+            this.AddItem(new Armor());
+            this.AddItem(new Shield());
         }
 
         public string Name { get; set; }
 
         public int VP { get; set; }
-        
         
         public int AttackValue
         {
