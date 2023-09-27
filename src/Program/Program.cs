@@ -30,7 +30,8 @@ namespace Program
 
             Enemies lotso = new Enemies("Lotso", 100);
             Enemies sauron = new Enemies("Sauron", 120);
-            Enemies Ursula = new Enemies("Ursula", 180);
+            Enemies ursula = new Enemies("Ursula", 180);
+            Enemies yzma = new Enemies ("Yzma", 200);
         }
     }
 }
