@@ -10,6 +10,8 @@ namespace RoleplayGame
 
         int DefenseValue { get; }
 
+        int VP { get; }
+
         void AddItem(IItem item);
 
         void RemoveItem(IItem item);

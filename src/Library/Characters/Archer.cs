@@ -10,12 +10,16 @@ namespace RoleplayGame
         public Archer(string name)
         {
             this.Name = name;
+            this.VP = 0;
             
             this.AddItem(new Bow());
             this.AddItem(new Helmet());
         }
 
         public string Name { get; set; }
+
+        public int VP { get; set; }
+        
         
         public int AttackValue
         {

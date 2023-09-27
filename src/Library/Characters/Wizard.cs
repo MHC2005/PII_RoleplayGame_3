@@ -12,11 +12,15 @@ namespace RoleplayGame
         public Wizard(string name)
         {
             this.Name = name;
+            this.VP = 0;
             
             this.AddItem(new Staff());
         }
 
         public string Name { get; set; }
+
+        public int VP { get; set; }
+        
         
         public int AttackValue
         {

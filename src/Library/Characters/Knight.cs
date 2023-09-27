@@ -10,6 +10,7 @@ namespace RoleplayGame
         public Knight(string name)
         {
             this.Name = name;
+            this.VP = 0;
             
             this.AddItem(new Sword());
             this.AddItem(new Armor());
@@ -17,6 +18,8 @@ namespace RoleplayGame
         }
 
         public string Name { get; set; }
+        
+        public int VP { get; set; }
         
         public int AttackValue
         {

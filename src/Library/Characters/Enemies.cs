@@ -1,25 +1,26 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Dwarf: ICharacter
+    public class Enemies: ICharacter
     {
         private int health = 100;
 
         private List<IItem> items = new List<IItem>();
 
-        public Dwarf(string name)
+        public Enemies(string name, int vp)
         {
             this.Name = name;
-            this.VP = 0;
+            this.VP = vp;
+
             
-            this.AddItem(new Axe());
-            this.AddItem(new Helmet());
+            this.AddItem(new Sword());
+            this.AddItem(new Armor());
+            this.AddItem(new Shield());
         }
 
         public string Name { get; set; }
 
         public int VP { get; set; }
-        
         
         public int AttackValue
         {
