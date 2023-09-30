@@ -7,9 +7,11 @@ namespace RoleplayGame
 
         private List<IItem> items = new List<IItem>();
 
-        public Archer(string name)
+        
+
+        public Archer(string name) : base(name, 0) // Llamar al constructor base con 0 VP
         {
-            //aca
+            this.Name = name;
             this.AddItem(new Bow());
             this.AddItem(new Helmet());
         }
