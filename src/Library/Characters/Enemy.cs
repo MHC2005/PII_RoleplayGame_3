@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Enemie: ICharacter
+    public class Enemy: ICharacter
     {
         private int health = 100;
 
         private List<IItem> items = new List<IItem>();
 
-        public Enemie(string name, int vp)
+        public Enemy(string name, int vp)
         {
             this.Name = name;
             this.VP = vp;
