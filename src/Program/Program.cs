@@ -28,10 +28,10 @@ namespace Program
 
             Console.WriteLine($"Someone cured Gimli. Gimli now has ❤️ {gimli.Health}");
 
-            Enemie lotso = new Enemie("Lotso", 100);
-            Enemie sauron = new Enemie("Sauron", 120);
-            Enemie ursula = new Enemie("Ursula", 180);
-            Enemie yzma = new Enemie ("Yzma", 200);
+            Enemy lotso = new Enemy("Lotso", 100);
+            Enemy sauron = new Enemy("Sauron", 120);
+            Enemy ursula = new Enemy("Ursula", 180);
+            Enemy yzma = new Enemy ("Yzma", 200);
         }
     }
 }
