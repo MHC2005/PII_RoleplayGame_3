@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RoleplayGame
 {
@@ -15,6 +16,7 @@ namespace RoleplayGame
             this.enemies = enemies; // Inicializo la lista de enemies con la lista pasada como argumento al constructor
         }
 
+      
         public void DoEncounter()
         {
             while (heroes.Count > 0 && enemies.Count > 0) //creo un bucle en el que hay heroes y enemigos vivios
@@ -39,21 +41,32 @@ namespace RoleplayGame
                         }
                     }
                 }
-
+                
+                
+                    
                 // Los héroes atacan a los enemigos
+                var enemiesList = enemies.ToList();
                 foreach (var hero in heroes)
                 {
-                    foreach (var enemy in enemies)
+                    foreach (var enemy in enemiesList) // se itera sobre cada elemento en la lista enemiesList.
                     {
-                        enemy.ReceiveAttack(hero.AttackValue); // hero attack al enemy
+                        // El héroe ataca al enemigo
+                        enemy.ReceiveAttack(hero.AttackValue);
                         Console.WriteLine($"{hero.Name} ataca a {enemy.Name}.");
-                        if (enemy.Health <= 0) //verifica si el enemy esta muerto
+
+                        if (enemy.Health <= 0)
                         {
-                            //heroes.ForEach(h => h.VP += enemy.VP); // Los héroes ganan VP
-                            foreach (var hero in heroes.OfType<Hero>()) // Itera solo sobre los héroes
+                            // Incrementamos los VP solo para héroes
+                            foreach (var h in heroes)
                             {
-                                hero.VP += enemy.VP; // Los héroes ganan VP del enemigo derrotado
+                                if (h is Hero)
+                                {
+                                    var heroCharacter = h as Hero;
+                                    heroCharacter.VP += enemy.VP;
+                                }
                             }
+
+                            // Eliminamos al enemigo derrotado de la lista
                             enemies.Remove(enemy);
                             Console.WriteLine($"{enemy.Name} ha sido derrotado por {hero.Name}.");
                         }
