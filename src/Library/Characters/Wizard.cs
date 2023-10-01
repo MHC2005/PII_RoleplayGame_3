@@ -10,5 +10,14 @@ namespace RoleplayGame
         {
             this.AddItem(new Staff());
         }
+        public void AddItem(IMagicalItem item)
+        {
+            this.magicalItems.Add(item);
+        }
+
+        public void RemoveItem(IMagicalItem item)
+        {
+            this.magicalItems.Remove(item);
+        }
     }
 }
