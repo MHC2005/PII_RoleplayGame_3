@@ -11,7 +11,6 @@ namespace RoleplayGame
         {
             this.Name = name;
             this.VP = vp;
-
             
             this.AddItem(new Sword());
             this.AddItem(new Armor());

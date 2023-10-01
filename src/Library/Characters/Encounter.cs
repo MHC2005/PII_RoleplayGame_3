@@ -43,6 +43,7 @@ namespace RoleplayGame
                 }
                 
                 
+                
                     
                 // Los héroes atacan a los enemigos
                 var enemiesList = enemies.ToList();
