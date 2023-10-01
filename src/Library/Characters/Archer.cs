@@ -8,7 +8,7 @@ namespace RoleplayGame
 
         
 
-        public Archer(string name) : base(name, 0) // Llamar al constructor base con 0 VP
+        public Archer(string name) : base(name, 0) // Aca llamo al constructor base con 0 VP
         {
             this.Name = name;
             this.AddItem(new Bow());
