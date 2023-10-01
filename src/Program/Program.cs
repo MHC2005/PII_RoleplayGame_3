@@ -31,6 +31,12 @@ namespace Program
             Enemy sauron = new Enemy("Sauron", 120);
             Enemy ursula = new Enemy("Ursula", 180);
             Enemy yzma = new Enemy("Yzma", 200);
+
+            Console.WriteLine($"Lotso's VP is {lotso.VP}"); // Imprimo el VP de Lotso
+            Console.WriteLine($"Sauron's VP is {sauron.VP}"); // Imprimo el VP de Sauron
+            Console.WriteLine($"Ursula's VP is {ursula.VP}"); // Imprimo el VP de Ursula
+            Console.WriteLine($"Yzma's VP is {yzma.VP}"); // Imprimo el VP de Yzma
+
         }
     }
 }
