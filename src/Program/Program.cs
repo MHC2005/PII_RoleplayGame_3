@@ -11,21 +11,35 @@ namespace Program
             book.AddSpell(new SpellOne());
             book.AddSpell(new SpellOne());
 
-            Wizard gandalf = new Wizard("Gandalf");
-            gandalf.AddItem(book);
+            Wizard emi = new Wizard("Emily");
+            emi.AddItem(book);
+            Wizard maru = new Wizard("Mary");
+            maru.AddItem(book);
 
-            Dwarf gimli = new Dwarf("Gimli");
+            Dwarf mateito = new Dwarf("Mathew");
+            Dwarf franco = new Dwarf("Frank");
 
-            Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-            Console.WriteLine($"Gandalf attacks Gimli with ⚔️ {gandalf.AttackValue}");
+            
+            Console.WriteLine($"Mary attacks Mathew with ⚔️ {maru.AttackValue}");// maru ataca a mateo
+            Console.WriteLine($"Mathew has ❤️ {mateito.Health}"); //el valor de salud de mateo
+            mateito.ReceiveAttack(maru.AttackValue);
+            
+            Console.WriteLine($"Emily attacks Frank with ⚔️ {emi.AttackValue}");//emi ataca a franco
+            Console.WriteLine($"Frank has ❤️ {franco.Health}"); //el valor de salud de franco
+            franco.ReceiveAttack(emi.AttackValue);
 
-            gimli.ReceiveAttack(gandalf.AttackValue);
+            Console.WriteLine($"Frank attacks Mary with ⚔️ {franco.AttackValue}");//franco ataca a maru
+            Console.WriteLine($"Mary has ❤️ {maru.Health}"); //valor de salud de maru
+            maru.ReceiveAttack(franco.AttackValue);
 
-            Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
+            Console.WriteLine($"Mathew attacks Emily with ⚔️ {mateito.AttackValue}"); //mateito ataca a emi
+            Console.WriteLine($"Emiliy has ❤️ {emi.Health}"); //valor de salud de emi
+            emi.ReceiveAttack(mateito.AttackValue);
 
-            gimli.Cure();
 
-            Console.WriteLine($"Someone cured Gimli. Gimli now has ❤️ {gimli.Health}");
+            emi.Cure();
+
+            Console.WriteLine($"Someone cured Emily. Emiliy now has ❤️ {emi.Health}");
 
             Enemy lotso = new Enemy("Lotso", 100);
             Enemy sauron = new Enemy("Sauron", 120);
