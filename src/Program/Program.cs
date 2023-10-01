@@ -54,6 +54,8 @@ namespace Program
             Console.WriteLine($"Ursula's VP is {ursula.VP}"); // Imprimo el VP de Ursula
             Console.WriteLine($"Yzma's VP is {yzma.VP}"); // Imprimo el VP de Yzma
 
+            // agregar vp heros
+
         }
     }
 }
