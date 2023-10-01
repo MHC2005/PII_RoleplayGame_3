@@ -18,28 +18,23 @@ namespace Program
 
             Dwarf mateito = new Dwarf("Mathew");
             Dwarf franco = new Dwarf("Frank");
-
             
             Console.WriteLine($"Mary attacks Mathew with ⚔️  {maru.AttackValue}");// maru ataca a mateo
             mateito.ReceiveAttack(maru.AttackValue);
             Console.WriteLine($"Mathew has ❤️  {mateito.Health}"); //el valor de salud de mateo
             
-            
             Console.WriteLine($"Emily attacks Frank with ⚔️  {emi.AttackValue}");//emi ataca a franco
             franco.ReceiveAttack(emi.AttackValue);
             Console.WriteLine($"Frank has ❤️  {franco.Health}"); //el valor de salud de franco
             
-
             Console.WriteLine($"Frank attacks Mary with ⚔️  {franco.AttackValue}");//franco ataca a maru
             maru.ReceiveAttack(franco.AttackValue);
             Console.WriteLine($"Mary has ❤️  {maru.Health}"); //valor de salud de maru
             
-
             Console.WriteLine($"Mathew attacks Emily with ⚔️  {mateito.AttackValue}"); //mateito ataca a emi
             emi.ReceiveAttack(mateito.AttackValue);
             Console.WriteLine($"Emiliy has ❤️  {emi.Health}"); //valor de salud de emi
             
-
             mateito.Cure();
 
             Console.WriteLine($"Someone cured Mathew. Mathew now has ❤️  {mateito.Health}");
