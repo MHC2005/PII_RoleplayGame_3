@@ -4,10 +4,6 @@ namespace RoleplayGame
     public class Archer: Hero
     {
 
-        private List<IItem> items = new List<IItem>();
-
-        
-
         public Archer(string name) : base(name, 0) // Aca llamo al constructor base con 0 VP
         {
             this.Name = name;
