@@ -42,14 +42,15 @@ namespace Program
             enemies.Add(ursula);
             enemies.Add(yzma);
 
+            Encounter encounter = new Encounter(heroes, enemies); // Crear una instancia de Encounter y realizar el encuentro
+            encounter.DoEncounter();
+
             Console.WriteLine($"Lotso's VP is {lotso.VP}"); // Imprimo el VP de Lotso
             Console.WriteLine($"Sauron's VP is {sauron.VP}"); // Imprimo el VP de Sauron
             Console.WriteLine($"Ursula's VP is {ursula.VP}"); // Imprimo el VP de Ursula
             Console.WriteLine($"Yzma's VP is {yzma.VP}"); // Imprimo el VP de Yzma
 
-            Encounter encounter = new Encounter(heroes, enemies); // Crear una instancia de Encounter y realizar el encuentro
-            encounter.DoEncounter();
-
+        
             mateito.Cure();
 
             Console.WriteLine($"Someone cured Mathew. Mathew now has ❤️  {mateito.Health}");
