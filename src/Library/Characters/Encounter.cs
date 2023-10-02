@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace RoleplayGame
 {
@@ -27,17 +28,12 @@ namespace RoleplayGame
                     if (heroes.Count > 0)   //Count es una propiedad que devuelve el número de elementos contenidos en la lista heroes
                     {
                         var targetHero = heroes[0]; // Selecciona al primer héroe en la lista de héroes
-                        enemy.ReceiveAttack(targetHero.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista 
+                        targetHero.ReceiveAttack(enemy.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista
                         Console.WriteLine($"{enemy.Name} ataca a {targetHero.Name}.");
                         if (targetHero.Health <= 0) // chequea que el hero no tenga vida
                         {
                             heroes.Remove(targetHero); // saca al hero muerto de la lista
                             Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                            if (targetHero.VP >= 5) // Verifica si el hero gano 5 o más VP
-                            {
-                                targetHero.Cure(); //cura al hero que gano 5 o mas VP
-                                Console.WriteLine($"{targetHero.Name} se ha curado.");
-                            }
                         }
                     }
                 }
@@ -55,6 +51,11 @@ namespace RoleplayGame
 
                         if (enemy.Health <= 0)
                         {
+                            if (hero.VP >= 5) // Verifica si el hero gano 5 o más VP
+                            {
+                                hero.Cure(); //cura al hero que gano 5 o mas VP
+                                Console.WriteLine($"{hero.Name} se ha curado.");
+                            }
                             // Incrementamos los VP solo para héroes
                             foreach (var h in heroes)
                             {

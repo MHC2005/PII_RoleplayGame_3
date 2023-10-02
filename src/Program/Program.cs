@@ -31,7 +31,7 @@ namespace Program
             Console.WriteLine($"Maru has ❤️  {maru.Health}"); //valor de salud de maru
             Console.WriteLine($"Emilia has ❤️  {emi.Health}"); //valor de salud de emi
 
-            Enemy lotso = new Enemy("Lotso", 100);
+            Enemy lotso = new Enemy("Lotso", 1);
             Enemy sauron = new Enemy("Sauron", 120);
             Enemy ursula = new Enemy("Ursula", 180);
             Enemy yzma = new Enemy("Yzma", 200);
