@@ -12,10 +12,10 @@ namespace Program
             book.AddSpell(new SpellOne());
             book.AddSpell(new SpellOne());
 
-            Wizard emi = new Wizard("Emily");
-            Wizard maru = new Wizard("Mary");
-            Dwarf mateito = new Dwarf("Mathew");
-            Dwarf franco = new Dwarf("Frank");
+            Wizard emi = new Wizard("Emilia");
+            Wizard maru = new Wizard("Maru");
+            Dwarf mateito = new Dwarf("Mateo");
+            Dwarf franco = new Dwarf("Franco");
 
             List<ICharacter> heroes = new List<ICharacter>();
             heroes.Add(emi);
@@ -26,10 +26,10 @@ namespace Program
             emi.AddItem(book);
             maru.AddItem(book);
             
-            Console.WriteLine($"Mathew has ❤️  {mateito.Health}"); //el valor de salud de mateo
-            Console.WriteLine($"Frank has ❤️  {franco.Health}"); //el valor de salud de franco
-            Console.WriteLine($"Mary has ❤️  {maru.Health}"); //valor de salud de maru
-            Console.WriteLine($"Emily has ❤️  {emi.Health}"); //valor de salud de emi
+            Console.WriteLine($"Mateo has ❤️  {mateito.Health}"); //el valor de salud de mateo
+            Console.WriteLine($"Franco has ❤️  {franco.Health}"); //el valor de salud de franco
+            Console.WriteLine($"Maru has ❤️  {maru.Health}"); //valor de salud de maru
+            Console.WriteLine($"Emilia has ❤️  {emi.Health}"); //valor de salud de emi
 
             Enemy lotso = new Enemy("Lotso", 100);
             Enemy sauron = new Enemy("Sauron", 120);
@@ -54,10 +54,10 @@ namespace Program
 
             Console.WriteLine($"Someone cured Mathew. Mathew now has ❤️  {mateito.Health}");
 
-            Console.WriteLine($"Mathew has ❤️  {mateito.Health}"); //el valor de salud de mateo
-            Console.WriteLine($"Frank has ❤️  {franco.Health}"); //el valor de salud de franco
-            Console.WriteLine($"Mary has ❤️  {maru.Health}"); //valor de salud de maru
-            Console.WriteLine($"Emily has ❤️  {emi.Health}"); //valor de salud de emi
+            Console.WriteLine($"Mateo has ❤️  {mateito.Health}"); //el valor de salud de mateo
+            Console.WriteLine($"Franco has ❤️  {franco.Health}"); //el valor de salud de franco
+            Console.WriteLine($"Maru has ❤️  {maru.Health}"); //valor de salud de maru
+            Console.WriteLine($"Emilia has ❤️  {emi.Health}"); //valor de salud de emi
         }
     }
 }
