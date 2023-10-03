@@ -73,6 +73,7 @@ namespace RoleplayGame
 
             foreach (IItem item in this.items)
             {
+<<<<<<< HEAD
                 if (item is IDefenseItem)
                 {
                     int defenseValue = (item as IDefenseItem).DefenseValue;
@@ -90,6 +91,9 @@ namespace RoleplayGame
                         remainingPower -= defenseValue;
                     }
                 }
+=======
+                this.Health -= power - this.DefenseValue;
+>>>>>>> 3147cd69d664ffa33e50e55de76368448bb8c557
             }
 
             // Si llegamos aquí, significa que el ataque restante ha superado la defensa de todos los elementos defensivos,

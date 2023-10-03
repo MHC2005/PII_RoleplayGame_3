@@ -41,9 +41,10 @@ namespace RoleplayGame
                 {
                     if (heroes.Count < enemies.Count)
                     {
+                        int i = 0;
                         foreach (var enemy in enemies)
                         {
-                            int i = 0;
+                            
                             if (heroes.Count > 0)   //Count es una propiedad que devuelve el número de elementos contenidos en la lista heroes
                             {
                                 if (i == 0)
@@ -55,8 +56,9 @@ namespace RoleplayGame
                                     {
                                         heroes.Remove(targetHero); // saca al hero muerto de la lista
                                         Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                                        i += 1;
+                                        
                                     }
+                                    i += 1;
                                 }
                                 else
                                 {
@@ -69,8 +71,9 @@ namespace RoleplayGame
                                         {
                                             heroes.Remove(targetHero); // saca al hero muerto de la lista
                                             Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                                            i += 1;
+                                            
                                         }
+                                        i += 1;
                                     }
                                 }
 
@@ -80,9 +83,10 @@ namespace RoleplayGame
                     }
                     else
                     {
+                        int i  = 0;
                         foreach (var enemy in enemies)
                         {
-                            int i = 0;
+                            
                             if (heroes.Count > 0)   //Count es una propiedad que devuelve el número de elementos contenidos en la lista heroes
                             {
                                 var targetHero = heroes[i]; // Selecciona al primer héroe en la lista de héroes
@@ -93,8 +97,9 @@ namespace RoleplayGame
                                 {
                                     heroes.Remove(targetHero); // saca al hero muerto de la lista
                                     Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                                    i += 1;
+                                    
                                 }
+                                i += 1;
                             }
                         }
                     }
