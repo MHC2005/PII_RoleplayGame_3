@@ -1,13 +1,30 @@
 namespace RoleplayGame
 {
-    public class Armor: IDefenseItem
-    {
-        public int DefenseValue
+    
+        public class Armor : IDefenseItem
         {
-            get
+            private int currentDefense;
+
+            public int DefenseValue
             {
-                return 25;
+                get
+                {
+                    return currentDefense;
+                }
+            }
+
+            public Armor(int initialDefenseValue)
+            {
+                currentDefense = initialDefenseValue;
+            }
+
+            public void ReduceDefense(int amount)
+            {
+                currentDefense -= amount;
+                if (currentDefense < 0)
+                {
+                    currentDefense = 0;
+                }
             }
         }
-    }
 }
