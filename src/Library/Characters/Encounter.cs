@@ -87,7 +87,7 @@ namespace RoleplayGame
                             {
                                 var targetHero = heroes[i]; // Selecciona al primer héroe en la lista de héroes
                                 targetHero.ReceiveAttack(enemy.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista
-                                Console.WriteLine($"{targetHero.Health}");
+                                Console.WriteLine($"{targetHero.Name} tiene todavia {targetHero.Health} de vide");
                                 Console.WriteLine($"{enemy.Name} ataca a {targetHero.Name}.");
                                 if (targetHero.Health <= 0) // chequea que el hero no tenga vida
                                 {

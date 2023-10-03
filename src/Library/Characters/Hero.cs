@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 namespace RoleplayGame
 {
@@ -70,6 +71,8 @@ namespace RoleplayGame
             if (this.DefenseValue < power)
             {
                 this.Health -= power - this.DefenseValue;
+            }else{
+                this.DefenseValue -= power;
             }
         }
 
