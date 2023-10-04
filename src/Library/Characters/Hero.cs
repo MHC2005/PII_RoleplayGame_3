@@ -69,37 +69,22 @@ namespace RoleplayGame
       
         public void ReceiveAttack(int power)
         {
-            int remainingPower = power;
-
-            foreach (IItem item in this.items)
+            if (this.DefenseValue < power)
             {
-<<<<<<< HEAD
-                if (item is IDefenseItem)
+                this.Health -= power - this.DefenseValue;
+            }
+            else
+            {
+                foreach (IItem item in this.items)
                 {
-                    int defenseValue = (item as IDefenseItem).DefenseValue;
-
-                    if (defenseValue >= remainingPower)
+                    if (item is IDefenseItem)
                     {
-                        // El item puede absorber todo el poder del ataque
-                        (item as IDefenseItem).ReduceDefense(remainingPower);
-                        return; // Salir del bucle porque el ataque ha sido completamente bloqueado.
-                    }
-                    else
-                    {
-                        // El item solo puede absorber parte del poder del ataque
-                        (item as IDefenseItem).ReduceDefense(defenseValue);
-                        remainingPower -= defenseValue;
+                        (item as IDefenseItem).DefenseValue -= power;
                     }
                 }
-=======
-                this.Health -= power - this.DefenseValue;
->>>>>>> 3147cd69d664ffa33e50e55de76368448bb8c557
             }
-
-            // Si llegamos aquí, significa que el ataque restante ha superado la defensa de todos los elementos defensivos,
-            // y afecta directamente a la salud del personaje.
-            this.Health -= remainingPower;
         }
+        
 
 
 
