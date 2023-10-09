@@ -51,6 +51,11 @@ namespace Program
 
             Encounter encounter = new Encounter(heroes, enemies); // Crear una instancia de Encounter y realizar el encuentro
             encounter.DoEncounter();
+
+            Console.WriteLine($"Mateo has ❤️  {mateito.Health}"); //el valor de salud de mateo
+            Console.WriteLine($"Franco has ❤️  {franco.Health}"); //el valor de salud de franco
+            Console.WriteLine($"Maru has ❤️  {maru.Health}"); //valor de salud de maru
+            Console.WriteLine($"Emilia has ❤️  {emi.Health}"); //valor de salud de emi
         }
     }
 }
