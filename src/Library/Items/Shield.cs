@@ -1,22 +1,13 @@
 namespace RoleplayGame
 {
     public class Shield: IDefenseItem
-    {    
-    public int DefenseValue { get; private set; }
-
-        public Shield()
+    {
+        public int DefenseValue
         {
-            this.DefenseValue = 20; // Establece el valor de defensa inicial del escudo.
-        }
-
-        public void ReduceDefense(int amount)
-        {
-            this.DefenseValue -= amount;
-            if (this.DefenseValue < 0)
+            get
             {
-                this.DefenseValue = 0;
+                return 14;
             }
-        }    
+        }
     }
 }
-
