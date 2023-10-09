@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Hero : ICharacter
+    public class Hero: ICharacter
     {
         private int health = 100;
 
@@ -12,10 +11,7 @@ namespace RoleplayGame
         {
             this.Name = name;
             this.VP = vp;
-            
-            this.AddItem(new Sword());
-            this.AddItem(new Armor());
-            this.AddItem(new Shield());
+
         }
 
         public string Name { get; set; }
@@ -66,27 +62,13 @@ namespace RoleplayGame
             }
         }
 
-      
         public void ReceiveAttack(int power)
         {
             if (this.DefenseValue < power)
             {
                 this.Health -= power - this.DefenseValue;
             }
-            else
-            {
-                foreach (IItem item in this.items)
-                {
-                    if (item is IDefenseItem)
-                    {
-                        (item as IDefenseItem).DefenseValue -= power;
-                    }
-                }
-            }
         }
-        
-
-
 
         public void Cure()
         {
