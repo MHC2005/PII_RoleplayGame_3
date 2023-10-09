@@ -15,50 +15,42 @@ namespace Program
             Wizard emi = new Wizard("Emilia");
             Wizard maru = new Wizard("Maru");
             Dwarf mateito = new Dwarf("Mateo");
-            Dwarf franco = new Dwarf("Franco");
-
-            List<ICharacter> heroes = new List<ICharacter>();
-            heroes.Add(emi);
-            heroes.Add(maru);
-            heroes.Add(mateito);
-            heroes.Add(franco);
+            Knight franco = new Knight("Franco");
 
             emi.AddItem(book);
             maru.AddItem(book);
-            
-            Console.WriteLine($"Mateo has ❤️  {mateito.Health}"); //el valor de salud de mateo
-            Console.WriteLine($"Franco has ❤️  {franco.Health}"); //el valor de salud de franco
-            Console.WriteLine($"Maru has ❤️  {maru.Health}"); //valor de salud de maru
-            Console.WriteLine($"Emilia has ❤️  {emi.Health}"); //valor de salud de emi
 
-            Enemy lotso = new Enemy("Lotso", 1);
-            Enemy sauron = new Enemy("Sauron", 120);
-            Enemy ursula = new Enemy("Ursula", 180);
-            Enemy yzma = new Enemy("Yzma", 200);
+            Console.WriteLine($"Mateito has ❤️ {mateito.Health}");
+            Console.WriteLine($"Emi attacks Mateito with ⚔️ {emi.AttackValue}");
 
-            List<ICharacter> enemies = new List<ICharacter>();
+            mateito.ReceiveAttack(emi.AttackValue);
+
+            Console.WriteLine($"Mateito has ❤️ {mateito.Health}");
+
+            mateito.Cure();
+
+            Console.WriteLine($"Someone cured Gimli. Gimli now has ❤️ {mateito.Health}");
+
+            Enemy lotso = new Enemy("Lotso", 4);
+            Enemy sauron = new Enemy("Sauron", 1);
+            Enemy ursula = new Enemy("Ursula", 2);
+            Enemy yzma = new Enemy("Yzma", 2);
+
+            List<Enemy> enemies = new List<Enemy>();
             enemies.Add(lotso);
             enemies.Add(sauron);
             enemies.Add(ursula);
             enemies.Add(yzma);
 
+            List<Hero> heroes = new List<Hero>();
+            heroes.Add(emi);
+            heroes.Add(maru);
+            heroes.Add(mateito);
+            heroes.Add(franco);
+
+
             Encounter encounter = new Encounter(heroes, enemies); // Crear una instancia de Encounter y realizar el encuentro
             encounter.DoEncounter();
-
-            Console.WriteLine($"Lotso's VP is {lotso.VP}"); // Imprimo el VP de Lotso
-            Console.WriteLine($"Sauron's VP is {sauron.VP}"); // Imprimo el VP de Sauron
-            Console.WriteLine($"Ursula's VP is {ursula.VP}"); // Imprimo el VP de Ursula
-            Console.WriteLine($"Yzma's VP is {yzma.VP}"); // Imprimo el VP de Yzma
-
-        
-            mateito.Cure();
-
-            Console.WriteLine($"Someone cured Mathew. Mathew now has ❤️  {mateito.Health}");
-
-            Console.WriteLine($"Mateo has ❤️  {mateito.Health}"); //el valor de salud de mateo
-            Console.WriteLine($"Franco has ❤️  {franco.Health}"); //el valor de salud de franco
-            Console.WriteLine($"Maru has ❤️  {maru.Health}"); //valor de salud de maru
-            Console.WriteLine($"Emilia has ❤️  {emi.Health}"); //valor de salud de emi
         }
     }
 }
