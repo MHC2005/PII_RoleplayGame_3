@@ -1,152 +1,144 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
 
 namespace RoleplayGame
 {
     public class Encounter
     {
-        private List<ICharacter> heroes; // Declaro una lista privada de ICharacter para almacenar héroes
-        private List<ICharacter> enemies; // Declaro una lista privada de ICharacter para almacenar enemigos
+        public List<Hero> heroes;
 
-        public Encounter(List<ICharacter> heroes, List<ICharacter> enemies)
+        public List<Enemy> enemigos;
+
+        public Encounter(List<Hero> heroes, List<Enemy> enemigos)
         {
-            this.heroes = heroes;   // Inicializo la lista de héroes con la lista pasada como argumento al constructor
 
-            this.enemies = enemies; // Inicializo la lista de enemies con la lista pasada como argumento al constructor
+            this.heroes = heroes;
+            this.enemigos = enemigos;
+
         }
-
 
         public void DoEncounter()
         {
-            while (heroes.Count > 0 && enemies.Count > 0) //creo un bucle en el que hay heroes y enemigos vivios
+
+            while (heroes.Count > 0 && enemigos.Count > 0)
             {
-                //Los enemigos atacan primero
+
+                //enemigos atacan primero
                 if (heroes.Count == 1)
-                {
-                    foreach (var enemy in enemies)
-                    {
-                        var targetHero = heroes[0]; // Selecciona al primer héroe en la lista de héroes
-                        targetHero.ReceiveAttack(enemy.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista
-                        Console.WriteLine($"{enemy.Name} ataca a {targetHero.Name}.");
-                        if (targetHero.Health <= 0) // chequea que el hero no tenga vida
+                {      //solo hay un heroe
+
+                    int target = 0;         //heroe que van a atacar
+                    int ene = 0;
+                    while (heroes.Count == 1 && ene < enemigos.Count )
+                    {     //cada enemigo ataca al heroe
+
+                        heroes[target].ReceiveAttack(enemigos[ene].AttackValue);  //ataque al heroe
+                        Console.WriteLine($"{enemigos[ene].Name} ataca a {heroes[target].Name}.");
+                        if (heroes[target].Health <= 0)
                         {
-                            heroes.Remove(targetHero); // saca al hero muerto de la lista
-                            Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
+
+                            Console.WriteLine($"{heroes[target].Name} fue asesinado por {enemigos[ene].Name}.");
+                            heroes.Remove(heroes[target]);
+                        
                         }
+                        ene += 1;
+
                     }
+
                 }
                 else
                 {
-                    if (heroes.Count < enemies.Count)
+                    if (heroes.Count < enemigos.Count)
                     {
-                        int i = 0;
-                        foreach (var enemy in enemies)
+                        int target = 0;
+
+                        foreach (Enemy ene in enemigos)
                         {
-                            
-                            if (heroes.Count > 0)   //Count es una propiedad que devuelve el número de elementos contenidos en la lista heroes
+                            heroes[target].ReceiveAttack(ene.AttackValue);  //ataque al heroe
+                            Console.WriteLine($"{ene.Name} ataca a {heroes[target].Name}.");
+                            if (heroes[target].Health <= 0)
                             {
-                                if (i == 0)
-                                {
-                                    var targetHero = heroes[i]; // Selecciona al primer héroe en la lista de héroes
-                                    targetHero.ReceiveAttack(enemy.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista
-                                    Console.WriteLine($"{enemy.Name} ataca a {targetHero.Name}.");
-                                    if (targetHero.Health <= 0) // chequea que el hero no tenga vida
-                                    {
-                                        heroes.Remove(targetHero); // saca al hero muerto de la lista
-                                        Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                                        
-                                    }
-                                    i += 1;
-                                }
-                                else
-                                {
-                                    if (i > 0)
-                                    {
-                                        var targetHero = heroes[i - 1]; // Selecciona al primer héroe en la lista de héroes
-                                        targetHero.ReceiveAttack(enemy.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista
-                                        Console.WriteLine($"{enemy.Name} ataca a {targetHero.Name}.");
-                                        if (targetHero.Health <= 0) // chequea que el hero no tenga vida
-                                        {
-                                            heroes.Remove(targetHero); // saca al hero muerto de la lista
-                                            Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                                            
-                                        }
-                                        i += 1;
-                                    }
-                                }
+
+                                
+                                Console.WriteLine($"{heroes[target].Name} fue asesinado por {ene.Name}.");
+                                heroes.Remove(heroes[target]);
 
 
                             }
+                            target += 1;
+
+                            if (target >= heroes.Count)
+                            {
+                                target = 0;
+                            }
+
                         }
                     }
                     else
                     {
-                        int i  = 0;
-                        foreach (var enemy in enemies)
+                        int target = 0;
+
+                        foreach (Enemy ene in enemigos)
                         {
-                            
-                            if (heroes.Count > 0)   //Count es una propiedad que devuelve el número de elementos contenidos en la lista heroes
+                            heroes[target].ReceiveAttack(ene.AttackValue);  //ataque al heroe
+                            Console.WriteLine($"{ene.Name} ataca a {heroes[target].Name}.");
+                            if (heroes[target].Health <= 0)
                             {
-                                var targetHero = heroes[i]; // Selecciona al primer héroe en la lista de héroes
-                                targetHero.ReceiveAttack(enemy.AttackValue); // el enemigo attack al hero en la posicion 0 de la lista
-                                Console.WriteLine($"{targetHero.Name} tiene todavia {targetHero.Health} de vide");
-                                Console.WriteLine($"{enemy.Name} ataca a {targetHero.Name}.");
-                                if (targetHero.Health <= 0) // chequea que el hero no tenga vida
-                                {
-                                    heroes.Remove(targetHero); // saca al hero muerto de la lista
-                                    Console.WriteLine($"{targetHero.Name} fue asesinado por {enemy.Name}.");
-                                    
-                                }
-                                i += 1;
+
+                                heroes.Remove(heroes[target]);
+                                Console.WriteLine($"{heroes[target].Name} fue asesinado por {ene.Name}.");
+
+
                             }
+                            target += 1;
+
                         }
+
                     }
                 }
 
-            }
-
-            // Los héroes atacan a los enemigos
-            var enemiesList = enemies.ToList();
-            foreach (var hero in heroes)
-            {
-                foreach (var enemy in enemiesList) // se itera sobre cada elemento en la lista enemiesList.
+                //atacan los heroes
+                foreach (Hero her in heroes)
                 {
-                    // El héroe ataca al enemigo
-                    enemy.ReceiveAttack(hero.AttackValue);
-                    Console.WriteLine($"{hero.Name} ataca a {enemy.Name}.");
-
-                    if (enemy.Health <= 0)
+                    for( int i = 0; i < enemigos.Count ; i++)
                     {
-                        if (hero.VP >= 5) // Verifica si el hero gano 5 o más VP
-                        {
-                            hero.Cure(); //cura al hero que gano 5 o mas VP
-                            Console.WriteLine($"{hero.Name} se ha curado.");
-                        }
-                        // Incrementamos los VP solo para héroes
-                        foreach (var h in heroes)
-                        {
-                            if (h is Hero)
-                            {
-                                var heroCharacter = h as Hero;
-                                heroCharacter.VP += enemy.VP;
-                            }
-                        }
+                        enemigos[i].ReceiveAttack(her.AttackValue);
+                        Console.WriteLine($"{her.Name} ataca a {enemigos[i].Name}.");
 
-                        // Eliminamos al enemigo derrotado de la lista
-                        enemies.Remove(enemy);
-                        Console.WriteLine($"{enemy.Name} ha sido derrotado por {hero.Name}.");
+                        if (enemigos[i].Health <= 0)
+                        {
+
+                            
+                            her.VP += enemigos[i].VP;
+                            Console.WriteLine($"{enemigos[i].Name} ha sido derrotado por {her.Name}.");
+                            if (her.VP >= 5)
+                            {
+                                her.Cure(); //cura al hero que gano 5 o mas VP
+                                Console.WriteLine($"{her.Name} se ha curado.");
+                            }
+                            enemigos.Remove(enemigos[i]);
+
+                        }
                     }
                 }
+
+
+
             }
-            Console.WriteLine("El encuentro ha terminado.");
+            if (heroes.Count < enemigos.Count)
+            {
+                Console.WriteLine("El encuentro ha finalizado. Los enemigos ganan");
+            }
+            else
+            {
+                Console.WriteLine("El encuentro ha finalizado. Los heroes ganan");
+            }
 
-
-
-            
         }
 
-        
     }
 }
