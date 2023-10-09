@@ -1,6 +1,5 @@
 namespace RoleplayGame
 {
-    
     public interface ICharacter
     {
         string Name { get; set; }
@@ -10,8 +9,6 @@ namespace RoleplayGame
         int AttackValue { get; }
 
         int DefenseValue { get; }
-
-        int VP { get; }
 
         void AddItem(IItem item);
 
